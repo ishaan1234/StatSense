@@ -216,11 +216,9 @@ def support_vector_machine(df, target_var, num_features):
     y = df[target_var]
 
     # Perform Recursive Feature Elimination (RFE)
-    rfe = RFE(estimator=SVC(), n_features_to_select=num_features)
-    X_selected = rfe.fit_transform(X, y)
-
+    
     # Split data into train and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_selected, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Fit Support Vector Machine classifier
     model = SVC()
@@ -245,12 +243,9 @@ def naive_bayes(df, target_var, num_features):
     X.columns = X.columns.astype(str)
     y = df[target_var]
 
-    # Perform Recursive Feature Elimination (RFE)
-    rfe = RFE(estimator=GaussianNB(), n_features_to_select=num_features)
-    X_selected = rfe.fit_transform(X, y)
 
     # Split data into train and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_selected, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Fit Naive Bayes classifier
     model = GaussianNB()

@@ -14,7 +14,7 @@ from sklearn.naive_bayes import GaussianNB
 def categorical_encoding(df):
     # Apply one-hot encoding to categorical columns
     categorical_cols = df.select_dtypes(include=['object', 'category']).columns
-    encoder = OneHotEncoder(sparse=False, drop='first')
+    encoder = OneHotEncoder(sparse_output=False, drop='first')
     encoded_cols = pd.DataFrame(encoder.fit_transform(df[categorical_cols]))
 
     # Replace original categorical columns with encoded columns

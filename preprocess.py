@@ -61,10 +61,10 @@ def fill_null_values(df):
     col1, col2 = st.columns(2)
 
     for col in numerical_cols:
-        df[col].fillna(df[col].mean(), inplace=True)
+        df[col] = df[col].fillna(df[col].mean())
     
     for col in categorical_cols:
-        df[col].fillna(df[col].mode()[0], inplace=True)
+        df[col] = df[col].fillna(df[col].mode()[0])
     
    
     df.drop_duplicates(inplace=True)

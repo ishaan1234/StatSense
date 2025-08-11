@@ -32,7 +32,7 @@ def project_title():
 
 def upload_csv():
 
-    uploaded_file = st.file_uploader('',type="csv")
+    uploaded_file = st.file_uploader('Upload CSV file', type="csv", label_visibility="hidden")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         st.write(df)

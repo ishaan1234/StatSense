@@ -62,8 +62,8 @@ def box_plot(df):
             ax.set_ylabel(selected_variable, color='w')
             ax.set_title(f'Distribution of {selected_variable} by {target_variable}', color='w')
             ax.tick_params(colors='w')
-            ax.set_xticklabels(ax.get_xticklabels(), color='w')
-            ax.set_yticklabels(ax.get_yticklabels(), color='w')
+            plt.setp(ax.xaxis.get_majorticklabels(), color='w')
+            plt.setp(ax.yaxis.get_majorticklabels(), color='w')
 
             stats_df = df_with_target.groupby(target_variable)[selected_variable].describe()
             for tick, label in enumerate(ax.get_xticklabels()):
@@ -206,14 +206,9 @@ def violin_plot(df):
         ax.set_ylabel(target_variable, color='w')
         ax.set_title(f'Distribution of {selected_feature} by {target_variable}', color='w')
         ax.tick_params(colors='w')
-        ax.set_xticklabels(ax.get_xticklabels(), color='w')
-        ax.set_yticklabels(ax.get_yticklabels(), color='w')
+        plt.setp(ax.xaxis.get_majorticklabels(), color='w')
+        plt.setp(ax.yaxis.get_majorticklabels(), color='w')
 
         st.pyplot(fig, use_container_width=True)
-
-
-
-
-
 
 
